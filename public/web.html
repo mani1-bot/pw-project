@@ -1,0 +1,125 @@
+
+    
+</body>
+</html>
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 40%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            display: block;
+        }
+        button {
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        #hatao{
+            background-color: red;
+            padding-top: 20px;
+        }
+        
+
+        
+    </style>
+    
+</head>
+<body>
+
+    
+    <button id="openForm">daily work</button>
+   
+
+    
+    <div class="container hidden" id="bookingContainer">
+      <img src="https://www.shutterstock.com/shutterstock/photos/391082791/display_1500/stock-vector-cartoon-fat-man-overweight-with-a-big-belly-and-a-hamburger-in-his-hand-vector-illustration-391082791.jpg" width="60%">
+        <h2> Your daily goal</h2>
+        <form id="bookingForm">
+            
+            <input type="text" id="email" placeholder="Enter Your work" required>
+            
+            <button type="submit" id="add">add</button>
+            <button> delete</button>
+            
+        </form>
+        
+
+        <p id="errorMessage" class="error hidden">fill </p>
+        <h3 id="confirmationMessage" class="hidden"></h3>
+        
+    </div>
+
+    <script>
+        
+        document.getElementById("openForm").addEventListener("click", function() {
+            document.getElementById("bookingContainer").classList.remove("hidden");
+        });
+
+        
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+           
+            const email = document.getElementById("email").value.trim();
+            
+            
+             if(email === "" ) {
+                document.getElementById("errorMessage").classList.remove("hidden");
+                return;
+            }
+
+            document.getElementById("errorMessage").classList.add("hidden");
+
+            
+            document.getElementById("confirmationMessage").innerHTML = 
+                `🎟 your work! <br> 
+                 
+                 work: ${email} <br> 
+                  
+                 `;
+            document.getElementById("confirmationMessage").classList.remove("hidden");
+
+            
+            document.getElementById("bookingForm").reset();
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+                
+               
